@@ -5,9 +5,9 @@ post "worktime/stopwatch/:id", :to => "stopwatch#timer"
 get "worktime/stopwatch/snapup/:id", :to => "stopwatch#snapup"
 get "users/:id/worktime", :to => "worktimelog#user_summary"
 
-match "users/:id/worktime" => "worktimelog#user_summary"
-match "issues/:issue_id/worktime" => "worktimelog#issue_summary"
-match "projects/:project_id/worktime" => "worktimelog#project_summary"
+match "users/:id/worktime" => "worktimelog#user_summary", via: [:get, :post]
+match "issues/:issue_id/worktime" => "worktimelog#issue_summary", via: [:get, :post]
+match "projects/:project_id/worktime" => "worktimelog#project_summary", via: [:get, :post]
 
 
 resources :projects do
